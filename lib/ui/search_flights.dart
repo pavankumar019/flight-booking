@@ -263,37 +263,51 @@ class _HomeState extends State<Home> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Travelers',
-                                style: TextStyle(
-                                    color: Colors.grey[600], fontSize: 14)),
-                            Container(
-                              height: 50,
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 12, horizontal: 16),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(color: Colors.grey[400]!),
-                              ),
-                              child: DropdownButtonHideUnderline(
-                                child: DropdownButton<int>(
-                                  value: travelers,
-                                  isExpanded: true,
-                                  items: List.generate(4, (index) => index + 1)
-                                      .map((value) => DropdownMenuItem<int>(
-                                            value: value,
-                                            child: Text(
-                                                '$value Passenger${value > 1 ? 's' : ''}'),
-                                          ))
-                                      .toList(),
-                                  onChanged: (value) {
-                                    setState(() {
-                                      travelers = value!;
-                                    });
-                                  },
+                            Stack(children: [
+                              Container(
+                                height: 50,
+                                margin: EdgeInsets.only(top: 7),
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 12, horizontal: 16),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(8),
+                                  border: Border.all(color: Colors.grey[400]!),
+                                ),
+                                child: DropdownButtonHideUnderline(
+                                  child: DropdownButton<int>(
+                                    value: travelers,
+                                    isExpanded: true,
+                                    items: List.generate(
+                                            4, (index) => index + 1)
+                                        .map((value) => DropdownMenuItem<int>(
+                                              value: value,
+                                              child: Text(
+                                                  '$value Passenger${value > 1 ? 's' : ''}'),
+                                            ))
+                                        .toList(),
+                                    onChanged: (value) {
+                                      setState(() {
+                                        travelers = value!;
+                                      });
+                                    },
+                                  ),
                                 ),
                               ),
-                            ),
+                              Positioned(
+                                top: -7,
+                                left: 10,
+                                child: Container(
+                                  padding: const EdgeInsets.only(
+                                      left: 5, right: 5, top: 2, bottom: 2),
+                                  color: const Color(0xffE9F0E4),
+                                  child: Text('Travelers',
+                                      style: TextStyle(
+                                          color: Colors.grey[600],
+                                          fontSize: 14)),
+                                ),
+                              ),
+                            ]),
                           ],
                         ),
                       ),
@@ -304,42 +318,55 @@ class _HomeState extends State<Home> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Cabin Class',
-                                style: TextStyle(
-                                    color: Colors.grey[600], fontSize: 14)),
-                            Container(
-                              height: 50,
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 12, horizontal: 16),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(color: Colors.grey[400]!),
-                              ),
-                              child: DropdownButtonHideUnderline(
-                                child: DropdownButton<String>(
-                                  icon: null,
-                                  value: cabinClass,
-                                  isExpanded: true,
-                                  items: [
-                                    'Economy Class',
-                                    'Business Class',
-                                    'First Class'
-                                  ]
-                                      .map((classType) =>
-                                          DropdownMenuItem<String>(
-                                            value: classType,
-                                            child: Text(classType),
-                                          ))
-                                      .toList(),
-                                  onChanged: (value) {
-                                    setState(() {
-                                      cabinClass = value!;
-                                    });
-                                  },
+                            Stack(children: [
+                              Container(
+                                height: 50,
+                                margin: const EdgeInsets.only(top: 7),
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 12, horizontal: 16),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(8),
+                                  border: Border.all(color: Colors.grey[400]!),
+                                ),
+                                child: DropdownButtonHideUnderline(
+                                  child: DropdownButton<String>(
+                                    icon: null,
+                                    value: cabinClass,
+                                    isExpanded: true,
+                                    items: [
+                                      'Economy Class',
+                                      'Business Class',
+                                      'First Class'
+                                    ]
+                                        .map((classType) =>
+                                            DropdownMenuItem<String>(
+                                              value: classType,
+                                              child: Text(classType),
+                                            ))
+                                        .toList(),
+                                    onChanged: (value) {
+                                      setState(() {
+                                        cabinClass = value!;
+                                      });
+                                    },
+                                  ),
                                 ),
                               ),
-                            ),
+                              Positioned(
+                                top: -7,
+                                left: 10,
+                                child: Container(
+                                  color: const Color(0xffE9F0E4),
+                                  padding: const EdgeInsets.only(
+                                      top: 2, bottom: 2, left: 5, right: 5),
+                                  child: Text('Cabin Class',
+                                      style: TextStyle(
+                                          color: Colors.grey[600],
+                                          fontSize: 14)),
+                                ),
+                              ),
+                            ]),
                           ],
                         ),
                       ),
