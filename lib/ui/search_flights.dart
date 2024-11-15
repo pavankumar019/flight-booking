@@ -226,6 +226,7 @@ class _HomeState extends State<Home> {
                     children: [
                       Expanded(
                         child: DatePickerWidget(
+                            isOneWay: false,
                             label: 'Depature',
                             selectedDate: departureDate,
                             onDateChanged: (date) {
@@ -239,6 +240,7 @@ class _HomeState extends State<Home> {
                       ),
                       Expanded(
                         child: DatePickerWidget(
+                            isOneWay: myTripType == TripType.oneWay,
                             label: 'Return',
                             selectedDate: returnDate,
                             onDateChanged: (date) {
