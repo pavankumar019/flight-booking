@@ -1,0 +1,22 @@
+import 'package:flight_booking/ui/search_flights.dart';
+import 'package:flutter/material.dart';
+
+void main() async {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Color(0xFFC4E59E),
+          ),
+          scaffoldBackgroundColor: const Color(0xFFE9F0E4)),
+      home: const Home(),
+    );
+  }
+}
