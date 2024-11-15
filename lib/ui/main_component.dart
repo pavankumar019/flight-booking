@@ -49,7 +49,7 @@ class MainComponent extends StatelessWidget {
               stops: '',
             ),
             const SizedBox(height: 16),
-            Divider(),
+            const Divider(),
             Container(
               padding: const EdgeInsets.only(left: 16, right: 16),
               child: Row(

@@ -83,7 +83,9 @@ class FlightInfoCard extends StatelessWidget {
                       alignment: Alignment.center,
                       children: [
                         Container(
-                            height: 1, width: 100, color: Color(0Xff505050)),
+                            height: 1,
+                            width: 100,
+                            color: const Color(0Xff505050)),
                         Transform.rotate(
                           angle: 51.82,
                           child: const Icon(Icons.airplanemode_active,

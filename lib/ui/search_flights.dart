@@ -16,7 +16,14 @@ class _HomeState extends State<Home> {
   DateTime returnDate = DateTime.now();
   int travelers = 1;
   String cabinClass = 'Economy Class';
-  TripType myTripType = TripType.oneWay;
+  late TripType myTripType;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    myTripType = TripType.oneWay;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -207,7 +214,7 @@ class _HomeState extends State<Home> {
                         height: 42,
                         width: 42,
                         decoration: BoxDecoration(
-                            color: Color(0xFFECF2E7),
+                            color: const Color(0xFFECF2E7),
                             borderRadius: BorderRadius.circular(120)),
                         child: IconButton(
                             onPressed: () => {},
@@ -224,31 +231,26 @@ class _HomeState extends State<Home> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Expanded(
-                        child: DatePickerWidget(
-                            isOneWay: false,
-                            label: 'Depature',
-                            selectedDate: departureDate,
-                            onDateChanged: (date) {
-                              setState(() {
-                                departureDate = date;
-                              });
-                            }),
-                      ),
+                      DatePickerWidget(
+                          label: 'Depature',
+                          selectedDate: departureDate,
+                          onDateChanged: (date) {
+                            setState(() {
+                              departureDate = date;
+                            });
+                          }),
                       const SizedBox(
                         width: 8,
                       ),
-                      Expanded(
-                        child: DatePickerWidget(
-                            isOneWay: myTripType == TripType.oneWay,
-                            label: 'Return',
-                            selectedDate: returnDate,
-                            onDateChanged: (date) {
-                              setState(() {
-                                returnDate = date;
-                              });
-                            }),
-                      ),
+                      DatePickerWidget(
+                          isOneWay: myTripType == TripType.oneWay,
+                          label: 'Return',
+                          selectedDate: returnDate,
+                          onDateChanged: (date) {
+                            setState(() {
+                              returnDate = date;
+                            });
+                          }),
                     ],
                   ),
                   const SizedBox(
@@ -364,43 +366,40 @@ class _HomeState extends State<Home> {
               ),
               SizedBox(
                 height: 352,
-                child: Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 16, right: 16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('Travel Inspirations',
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w600)),
-                            Row(
-                              children: [
-                                Text('Dubai'),
-                                Icon(Icons.arrow_drop_down),
-                              ],
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 16),
-                        Expanded(
-                          child: ListView.separated(
-                            separatorBuilder: (context, index) =>
-                                const SizedBox(
-                              width: 10,
-                            ),
-                            scrollDirection: Axis.horizontal,
-                            itemCount: 2,
-                            itemBuilder: (context, index) {
-                              return _buildInspirationCard(
-                                  index == 0 ? 'Saudi Arabia' : 'Kuwait');
-                            },
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 16, right: 16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Travel Inspirations',
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w600)),
+                          Row(
+                            children: [
+                              Text('Dubai'),
+                              Icon(Icons.arrow_drop_down),
+                            ],
                           ),
-                        )
-                      ],
-                    ),
+                        ],
+                      ),
+                      const SizedBox(height: 16),
+                      Expanded(
+                        child: ListView.separated(
+                          separatorBuilder: (context, index) => const SizedBox(
+                            width: 10,
+                          ),
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 2,
+                          itemBuilder: (context, index) {
+                            return _buildInspirationCard(
+                                index == 0 ? 'Saudi Arabia' : 'Kuwait');
+                          },
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ),
@@ -409,47 +408,44 @@ class _HomeState extends State<Home> {
               ),
               SizedBox(
                 height: 313,
-                child: Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 16, right: 16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('Flight & Hotel Packages',
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w600)),
-                          ],
-                        ),
-                        const SizedBox(height: 16),
-                        Expanded(
-                          child: ListView.separated(
-                            separatorBuilder: (context, index) =>
-                                const SizedBox(
-                              width: 10,
-                            ),
-                            scrollDirection: Axis.horizontal,
-                            itemCount: 2,
-                            itemBuilder: (context, index) {
-                              return Container(
-                                width: 390,
-                                height: 313,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                    child: Image.asset(
-                                      'assets/images/packages_1.png',
-                                      fit: BoxFit.cover,
-                                    )),
-                              );
-                            },
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 16, right: 16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Flight & Hotel Packages',
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w600)),
+                        ],
+                      ),
+                      const SizedBox(height: 16),
+                      Expanded(
+                        child: ListView.separated(
+                          separatorBuilder: (context, index) => const SizedBox(
+                            width: 10,
                           ),
-                        )
-                      ],
-                    ),
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 2,
+                          itemBuilder: (context, index) {
+                            return Container(
+                              width: 390,
+                              height: 313,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Image.asset(
+                                    'assets/images/packages_1.png',
+                                    fit: BoxFit.cover,
+                                  )),
+                            );
+                          },
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ),

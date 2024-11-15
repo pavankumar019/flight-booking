@@ -12,7 +12,7 @@ class DatePickerWidget extends StatelessWidget {
       required this.label,
       required this.selectedDate,
       required this.onDateChanged,
-      required this.isOneWay});
+      this.isOneWay = false});
 
   @override
   Widget build(BuildContext context) {
