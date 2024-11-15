@@ -51,7 +51,7 @@ class MainComponent extends StatelessWidget {
             const SizedBox(height: 16),
             const Divider(),
             Container(
-              padding: const EdgeInsets.only(left: 16, right: 16),
+              padding: const EdgeInsets.only(left: 16, right: 0),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -59,9 +59,8 @@ class MainComponent extends StatelessWidget {
                       child: Row(
                         children: [
                           Container(
-                              height: 22,
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 5),
+                              padding: const EdgeInsets.only(
+                                  left: 10, right: 10, top: 5, bottom: 5),
                               decoration: BoxDecoration(
                                   border: Border.all(
                                     color: Colors.green,
@@ -73,9 +72,8 @@ class MainComponent extends StatelessWidget {
                                       color: Colors.green[800], fontSize: 9))),
                           const SizedBox(width: 16),
                           Container(
-                              height: 22,
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 5),
+                              padding: const EdgeInsets.only(
+                                  left: 10, right: 10, top: 5, bottom: 5),
                               decoration: BoxDecoration(
                                   border: Border.all(
                                     color: Colors.blue.shade800,
@@ -88,20 +86,18 @@ class MainComponent extends StatelessWidget {
                         ],
                       ),
                     ),
-                    ElevatedButton(
+                    TextButton.icon(
+                      iconAlignment: IconAlignment.end,
+                      icon: const Icon(
+                        Icons.arrow_drop_down,
+                        color: Color(0XFFFA7927),
+                      ),
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.transparent, elevation: 0),
-                      child:
-                          const Row(mainAxisSize: MainAxisSize.min, children: [
-                        Text('Flight Details',
-                            style: TextStyle(
-                                fontSize: 12, color: Color(0XFFFA7927))),
-                        Icon(
-                          Icons.arrow_drop_down,
-                          color: Color(0XFFFA7927),
-                        )
-                      ]),
+                      label: const Text('Flight Details',
+                          style: TextStyle(
+                              fontSize: 12, color: Color(0XFFFA7927))),
                     )
                   ]),
             ),

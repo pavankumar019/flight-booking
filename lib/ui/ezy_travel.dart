@@ -61,7 +61,9 @@ class EzyTravel extends StatelessWidget {
                           ),
                           Text(
                             'Modify Search',
-                            style: TextStyle(color: Colors.green),
+                            style: TextStyle(
+                                color: Colors.green,
+                                decoration: TextDecoration.underline),
                           ),
                         ],
                       ),
@@ -75,15 +77,40 @@ class EzyTravel extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        'Sort',
-                        style: TextStyle(),
+                      Row(
+                        children: [
+                          Text(
+                            'Sort',
+                            style: TextStyle(),
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Icon(
+                            Icons.keyboard_arrow_down,
+                          )
+                        ],
                       ),
                       Text(
                         'Non - Stop',
                         style: TextStyle(),
                       ),
-                      Text('Filter')
+                      Row(
+                        children: [
+                          Text(
+                            'Filter',
+                            style: TextStyle(fontSize: 14),
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Icon(
+                            Icons.tune,
+                            size: 17,
+                            color: Color(0xff898989),
+                          )
+                        ],
+                      )
                     ],
                   ),
                 ],

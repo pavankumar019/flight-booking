@@ -45,7 +45,9 @@ class FlightInfoCard extends StatelessWidget {
                   children: [
                     Text(flightDescription,
                         style: const TextStyle(
-                            fontSize: 14, fontWeight: FontWeight.w500)),
+                            color: Color(0xff0B0B0B),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500)),
                     Text(price,
                         style: const TextStyle(
                             color: Colors.green, fontWeight: FontWeight.w700)),
