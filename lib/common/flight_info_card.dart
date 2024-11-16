@@ -1,3 +1,4 @@
+import 'package:flight_booking/common/dotted_line.dart';
 import 'package:flutter/material.dart';
 
 class FlightInfoCard extends StatelessWidget {
@@ -84,10 +85,15 @@ class FlightInfoCard extends StatelessWidget {
                     Stack(
                       alignment: Alignment.center,
                       children: [
-                        Container(
-                            height: 1,
-                            width: 100,
-                            color: const Color(0Xff505050)),
+                        DashedLine(
+                          dashSpace: 2,
+                          dashWidth: 2,
+                          height: 1,
+                        ),
+                        // Container(
+                        //     height: 1,
+                        //     width: 100,
+                        //     color: const Color(0Xff505050)),
                         Transform.rotate(
                           angle: 51.82,
                           child: const Icon(Icons.airplanemode_active,
