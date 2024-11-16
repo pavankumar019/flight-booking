@@ -1,25 +1,18 @@
+import 'package:flight_booking/common/dashed_line_widget.dart';
 import 'package:flight_booking/common/flight_info_card.dart';
 import 'package:flutter/material.dart';
 
-class MainComponent extends StatelessWidget {
-  const MainComponent({super.key});
+class FlightDuoWidget extends StatelessWidget {
+  const FlightDuoWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.black26,
-            blurRadius: 8,
-            offset: Offset(0, 4),
-          ),
-        ],
       ),
       child: Card(
-        elevation: 0,
+        elevation: 2,
         color: Colors.white,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,7 +42,13 @@ class MainComponent extends StatelessWidget {
               stops: '',
             ),
             const SizedBox(height: 16),
-            const Divider(),
+            // const Divider(),
+            const DashedLine(
+              color: Colors.grey,
+              dashSpace: 5,
+              dashWidth: 5,
+              height: 1.5,
+            ),
             Container(
               padding: const EdgeInsets.only(left: 16, right: 0),
               child: Row(
@@ -89,7 +88,7 @@ class MainComponent extends StatelessWidget {
                     TextButton.icon(
                       iconAlignment: IconAlignment.end,
                       icon: const Icon(
-                        Icons.arrow_drop_down,
+                        Icons.keyboard_arrow_down,
                         color: Color(0XFFFA7927),
                       ),
                       onPressed: () {},

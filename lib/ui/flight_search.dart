@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   const Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: EdgeInsets.only(left: 24, top: 19),
                     child: Text(
                       "Let's Start Trip",
                       style: TextStyle(
@@ -113,16 +113,25 @@ class _HomeState extends State<Home> {
                           children: [
                             Row(
                               children: [
-                                Expanded(
-                                    flex: 1,
-                                    child: Transform.rotate(
-                                      angle: 45,
-                                      child: const Icon(Icons.flight,
-                                          color: Color(0xFF63AF23)),
-                                    )),
+                                Container(
+                                  margin: EdgeInsets.only(left: 8.5),
+                                  child: Transform.rotate(
+                                    angle: 45,
+                                    child: const Icon(
+                                      Icons.flight,
+                                      color: Color(0xFF63AF23),
+                                      size: 20,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 17,
+                                ),
                                 const Expanded(
                                     flex: 4,
                                     child: TextField(
+                                      cursorColor: Color(0xFF63AF23),
+                                      style: TextStyle(fontSize: 16),
                                       decoration: InputDecoration(
                                           border: InputBorder.none,
                                           hintText: 'From'),
@@ -136,24 +145,31 @@ class _HomeState extends State<Home> {
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                   colors: [
-                                    Colors.green,
-                                    Colors.greenAccent.shade200,
-                                    Colors.greenAccent.shade100
+                                    Color(0xFF63AF23),
+                                    Color(0xFF63AF23).withAlpha(2),
                                   ],
                                   begin: Alignment.centerLeft,
                                   end: Alignment.centerRight,
                                 ),
                               ),
                             ),
-                            const Row(
+                            Row(
                               children: [
-                                Expanded(
-                                    flex: 1,
-                                    child: Icon(Icons.location_on,
-                                        color: Color(0xFF63AF23))),
+                                Container(
+                                  margin: EdgeInsets.only(left: 8),
+                                  child: Icon(
+                                    Icons.location_on,
+                                    color: Color(0xFF63AF23),
+                                    size: 20,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 17,
+                                ),
                                 Expanded(
                                     flex: 4,
                                     child: TextField(
+                                      cursorColor: Color(0xFF63AF23),
                                       decoration: InputDecoration(
                                           border: InputBorder.none,
                                           hintText: 'To'),
@@ -179,26 +195,32 @@ class _HomeState extends State<Home> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      DatePickerWidget(
-                          label: 'Depature',
-                          selectedDate: departureDate,
-                          onDateChanged: (date) {
-                            setState(() {
-                              departureDate = date;
-                            });
-                          }),
+                      Expanded(
+                        flex: 1,
+                        child: DatePickerWidget(
+                            label: 'Depature',
+                            selectedDate: departureDate,
+                            onDateChanged: (date) {
+                              setState(() {
+                                departureDate = date;
+                              });
+                            }),
+                      ),
                       const SizedBox(
                         width: 8,
                       ),
-                      DatePickerWidget(
-                          isOneWay: myTripType == TripType.oneWay,
-                          label: 'Return',
-                          selectedDate: returnDate,
-                          onDateChanged: (date) {
-                            setState(() {
-                              returnDate = date;
-                            });
-                          }),
+                      Expanded(
+                        flex: 1,
+                        child: DatePickerWidget(
+                            isOneWay: myTripType == TripType.oneWay,
+                            label: 'Return',
+                            selectedDate: returnDate,
+                            onDateChanged: (date) {
+                              setState(() {
+                                returnDate = date;
+                              });
+                            }),
+                      ),
                     ],
                   ),
                   const SizedBox(
@@ -208,6 +230,7 @@ class _HomeState extends State<Home> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Expanded(
+                        flex: 1,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -231,7 +254,12 @@ class _HomeState extends State<Home> {
                                         .map((value) => DropdownMenuItem<int>(
                                               value: value,
                                               child: Text(
-                                                  '$value Passenger${value > 1 ? 's' : ''}'),
+                                                '$value Passenger${value > 1 ? 's' : ''}',
+                                                style: const TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.w500),
+                                              ),
                                             ))
                                         .toList(),
                                     onChanged: (value) {
@@ -243,16 +271,18 @@ class _HomeState extends State<Home> {
                                 ),
                               ),
                               Positioned(
-                                top: -7,
-                                left: 10,
+                                top: -3,
+                                left: 14,
                                 child: Container(
+                                  height: 18,
                                   padding: const EdgeInsets.only(
-                                      left: 5, right: 5, top: 2, bottom: 2),
+                                      left: 5, right: 5, top: 3, bottom: 3),
                                   color: const Color(0xffE9F0E4),
                                   child: Text('Travelers',
                                       style: TextStyle(
                                           color: Colors.grey[600],
-                                          fontSize: 14)),
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400)),
                                 ),
                               ),
                             ]),
@@ -263,6 +293,7 @@ class _HomeState extends State<Home> {
                         width: 8,
                       ),
                       Expanded(
+                        flex: 1,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -290,7 +321,11 @@ class _HomeState extends State<Home> {
                                         .map((classType) =>
                                             DropdownMenuItem<String>(
                                               value: classType,
-                                              child: Text(classType),
+                                              child: Text(classType,
+                                                  style: const TextStyle(
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w500)),
                                             ))
                                         .toList(),
                                     onChanged: (value) {
@@ -302,16 +337,18 @@ class _HomeState extends State<Home> {
                                 ),
                               ),
                               Positioned(
-                                top: -7,
-                                left: 10,
+                                top: -3,
+                                left: 14,
                                 child: Container(
+                                  height: 18,
                                   color: const Color(0xffE9F0E4),
                                   padding: const EdgeInsets.only(
-                                      top: 2, bottom: 2, left: 5, right: 5),
+                                      top: 3, bottom: 3, left: 5, right: 5),
                                   child: Text('Cabin Class',
                                       style: TextStyle(
                                           color: Colors.grey[600],
-                                          fontSize: 14)),
+                                          fontSize: 11,
+                                          fontWeight: FontWeight.w400)),
                                 ),
                               ),
                             ]),
@@ -323,7 +360,7 @@ class _HomeState extends State<Home> {
                 ]),
               ),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
               GestureDetector(
                 onTap: () {

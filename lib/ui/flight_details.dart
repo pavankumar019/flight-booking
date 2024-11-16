@@ -1,5 +1,5 @@
 import 'package:flight_booking/colors.dart';
-import 'package:flight_booking/ui/main_component.dart';
+import 'package:flight_booking/ui/flight_duo_widget.dart';
 import 'package:flutter/material.dart';
 
 class EzyTravel extends StatelessWidget {
@@ -129,33 +129,7 @@ class EzyTravel extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: 5,
               itemBuilder: (context, index) {
-                return Container(
-                  padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    color: AppColors.primary,
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(color: Colors.grey, width: 1),
-                  ),
-                  child: const Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('Mar 23 - Mar 24',
-                          style: TextStyle(
-                            color: Color(0Xff434343),
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12,
-                          )),
-                      Text(
-                        'From AED 741',
-                        style: TextStyle(
-                            fontSize: 12,
-                            color: Color(0Xff434343),
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ],
-                  ),
-                );
+                return _buildDateList(isSelected: index == 1);
               },
             ),
           ),
@@ -183,7 +157,7 @@ class EzyTravel extends StatelessWidget {
               ),
               itemCount: 2,
               itemBuilder: (context, index) {
-                return const MainComponent();
+                return const FlightDuoWidget();
               },
             ),
           )
@@ -191,4 +165,35 @@ class EzyTravel extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget _buildDateList({bool isSelected = false}) {
+  return Container(
+    padding: const EdgeInsets.all(8),
+    decoration: BoxDecoration(
+      color: AppColors.primary,
+      borderRadius: BorderRadius.circular(15),
+      border: Border.all(
+          color: isSelected ? Color(0xff63AF23) : Color(0xffC8C8C8), width: 1),
+    ),
+    child: const Column(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text('Mar 23 - Mar 24',
+            style: TextStyle(
+              color: Color(0Xff434343),
+              fontWeight: FontWeight.w600,
+              fontSize: 12,
+            )),
+        Text(
+          'From AED 741',
+          style: TextStyle(
+              fontSize: 12,
+              color: Color(0Xff434343),
+              fontWeight: FontWeight.w500),
+        ),
+      ],
+    ),
+  );
 }
