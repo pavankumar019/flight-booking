@@ -216,12 +216,13 @@ class _HomeState extends State<Home> {
                         decoration: BoxDecoration(
                             color: const Color(0xFFECF2E7),
                             borderRadius: BorderRadius.circular(120)),
-                        child: IconButton(
-                            onPressed: () => {},
-                            icon: const Icon(
-                              Icons.swap_vert,
-                              color: Color(0xFF63AF23),
-                            )),
+                        child: Image.asset('assets/images/revert_icon.png'),
+                        // child: IconButton(
+                        //     onPressed: () => {},
+                        //     icon: const Icon.as(
+                        //       Icons.swap_vert,
+                        //       color: Color(0xFF63AF23),
+                        //     )),
                       )
                     ],
                   )),
@@ -398,18 +399,29 @@ class _HomeState extends State<Home> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Travel Inspirations',
+                          const Text('Travel Inspirations',
                               style: TextStyle(
                                   fontSize: 16, fontWeight: FontWeight.w600)),
-                          Row(
-                            children: [
-                              Text('Dubai'),
-                              Icon(Icons.arrow_drop_down),
-                            ],
-                          ),
+                          TextButton.icon(
+                            iconAlignment: IconAlignment.end,
+                            label: const Text(
+                              'Dubai',
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xff2D2D2D)),
+                            ),
+                            onPressed: () => {},
+                            icon: const Icon(
+                              size: 15,
+                              Icons.keyboard_arrow_down,
+                              color: Color(0xff63AF23),
+                            ),
+                          )
                         ],
                       ),
                       const SizedBox(height: 16),

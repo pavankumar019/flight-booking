@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class DashedLine extends StatelessWidget {
-  final double height; // Height of the dash
-  final Color color; // Color of the dash
-  final double dashWidth; // Width of each dash
-  final double dashSpace; // Space between dashes
+  final double height;
+  final Color color;
+  final double dashWidth;
+  final double dashSpace;
 
   const DashedLine({
     Key? key,
@@ -54,7 +54,7 @@ class DashedLinePainter extends CustomPainter {
         Rect.fromLTWH(startX, size.height / 2 - height / 2, dashWidth, height),
         paint,
       );
-      startX += (dashWidth + dashSpace); // Move to the next position
+      startX += (dashWidth + dashSpace);
     }
   }
 
