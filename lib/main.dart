@@ -1,4 +1,4 @@
-import 'package:flight_booking/ui/search_flights.dart';
+import 'package:flight_booking/ui/flight_search.dart';
 import 'package:flutter/material.dart';
 
 void main() async {

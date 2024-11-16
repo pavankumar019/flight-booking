@@ -132,7 +132,7 @@ class EzyTravel extends StatelessWidget {
                 return Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: AppColors.secondaryBackgroundColor,
+                    color: AppColors.primary,
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(color: Colors.grey, width: 1),
                   ),

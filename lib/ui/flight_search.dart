@@ -1,8 +1,7 @@
 import 'package:flight_booking/common/date_picker_widget.dart';
-import 'package:flight_booking/ui/ezy_travel.dart';
+import 'package:flight_booking/common/trip_type_button.dart';
+import 'package:flight_booking/ui/flight_details.dart';
 import 'package:flutter/material.dart';
-
-enum TripType { oneWay, roundTrip, multiCity }
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -20,7 +19,6 @@ class _HomeState extends State<Home> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     myTripType = TripType.oneWay;
   }
@@ -65,81 +63,36 @@ class _HomeState extends State<Home> {
                     right: 10,
                     left: 10,
                     child: Container(
-                      padding: const EdgeInsets.only(left: 10, right: 10),
                       width: double.infinity,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(6)),
                       child: Row(
                         children: [
-                          Expanded(
-                            child: ElevatedButton(
-                              onPressed: () => setState(() {
-                                myTripType = TripType.roundTrip;
-                              }),
-                              style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  shape: const BeveledRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(6))),
-                                  backgroundColor:
-                                      myTripType == TripType.roundTrip
-                                          ? Colors.green
-                                          : Colors.white),
-                              child: Text(
-                                'Round Trip',
-                                style: TextStyle(
-                                    color: myTripType == TripType.roundTrip
-                                        ? Colors.white
-                                        : Colors.black),
-                              ),
-                            ),
+                          TripTypeButton(
+                            label: 'Round Trip',
+                            tripType: TripType.roundTrip,
+                            selectedTripType: myTripType,
+                            onPressed: () => setState(() {
+                              myTripType = TripType.roundTrip;
+                            }),
                           ),
-                          Expanded(
-                            child: ElevatedButton(
-                              onPressed: () => setState(() {
-                                myTripType = TripType.oneWay;
-                              }),
-                              style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  shape: const BeveledRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(6))),
-                                  backgroundColor: myTripType == TripType.oneWay
-                                      ? Colors.green
-                                      : Colors.white),
-                              child: Text(
-                                'One way',
-                                style: TextStyle(
-                                    color: myTripType == TripType.oneWay
-                                        ? Colors.white
-                                        : Colors.black),
-                              ),
-                            ),
+                          TripTypeButton(
+                            label: 'One Way',
+                            tripType: TripType.oneWay,
+                            selectedTripType: myTripType,
+                            onPressed: () => setState(() {
+                              myTripType = TripType.oneWay;
+                            }),
                           ),
-                          Expanded(
-                            child: ElevatedButton(
-                              onPressed: () => setState(() {
-                                myTripType = TripType.multiCity;
-                              }),
-                              style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  shape: const BeveledRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(6))),
-                                  backgroundColor:
-                                      myTripType == TripType.multiCity
-                                          ? Colors.green
-                                          : Colors.white),
-                              child: Text(
-                                'Multi city',
-                                style: TextStyle(
-                                    color: myTripType == TripType.multiCity
-                                        ? Colors.white
-                                        : Colors.black),
-                              ),
-                            ),
-                          )
+                          TripTypeButton(
+                            label: 'Multi-City',
+                            tripType: TripType.multiCity,
+                            selectedTripType: myTripType,
+                            onPressed: () => setState(() {
+                              myTripType = TripType.multiCity;
+                            }),
+                          ),
                         ],
                       ),
                     ),
@@ -217,12 +170,6 @@ class _HomeState extends State<Home> {
                             color: const Color(0xFFECF2E7),
                             borderRadius: BorderRadius.circular(120)),
                         child: Image.asset('assets/images/revert_icon.png'),
-                        // child: IconButton(
-                        //     onPressed: () => {},
-                        //     icon: const Icon.as(
-                        //       Icons.swap_vert,
-                        //       color: Color(0xFF63AF23),
-                        //     )),
                       )
                     ],
                   )),
@@ -267,7 +214,7 @@ class _HomeState extends State<Home> {
                             Stack(children: [
                               Container(
                                 height: 50,
-                                margin: EdgeInsets.only(top: 7),
+                                margin: const EdgeInsets.only(top: 7),
                                 padding: const EdgeInsets.symmetric(
                                     vertical: 12, horizontal: 16),
                                 decoration: BoxDecoration(
