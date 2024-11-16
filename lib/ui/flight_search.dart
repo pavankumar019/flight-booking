@@ -325,18 +325,27 @@ class _HomeState extends State<Home> {
               const SizedBox(
                 height: 10,
               ),
-              ElevatedButton(
-                onPressed: () => {
+              GestureDetector(
+                onTap: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => const EzyTravel(),
-                      ))
+                      ));
                 },
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-                child: const Text(
-                  "Search Flights",
-                  style: TextStyle(color: Colors.white),
+                child: Container(
+                  height: 42,
+                  width: 140,
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  alignment: Alignment.center,
+                  child: const Text(
+                    'Search Flights',
+                    style: TextStyle(color: Colors.white, fontSize: 14),
+                  ),
                 ),
               ),
               SizedBox(

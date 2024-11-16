@@ -37,7 +37,7 @@ class DatePickerWidget extends StatelessWidget {
           child: Stack(children: [
             Container(
               margin: const EdgeInsets.only(top: 8),
-              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 2),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(8),
